@@ -19,5 +19,7 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
     Route::get('/admin/dashboard', DashboardController::class)->name('admin.dashboard');
-    Route::get('/users/list', [UsersController::class, 'viewListOfUsers'])->name('admin.user-list');
+    Route::prefix('admin')->name('admin.')->group(function () {
+        Route::resource('users', UsersController::class)->except('show');
+    });
 });
