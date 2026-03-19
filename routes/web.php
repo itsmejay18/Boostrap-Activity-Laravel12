@@ -20,6 +20,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
     Route::get('/admin/dashboard', DashboardController::class)->name('admin.dashboard');
     Route::prefix('admin')->name('admin.')->group(function () {
-        Route::resource('users', UsersController::class)->except('show');
+        Route::resource('users', UsersController::class)->only(['index', 'store', 'update', 'destroy']);
     });
 });

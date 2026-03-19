@@ -17,13 +17,6 @@ class UsersController extends Controller
         ]);
     }
 
-    public function create(): View
-    {
-        return view('admin.users.create', [
-            'user' => new User(),
-        ]);
-    }
-
     public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
@@ -37,13 +30,6 @@ class UsersController extends Controller
         return redirect()
             ->route('admin.users.index')
             ->with('success', 'User created successfully.');
-    }
-
-    public function edit(User $user): View
-    {
-        return view('admin.users.edit', [
-            'user' => $user,
-        ]);
     }
 
     public function update(Request $request, User $user): RedirectResponse
