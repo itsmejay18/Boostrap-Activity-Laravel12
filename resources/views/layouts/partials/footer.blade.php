@@ -38,7 +38,8 @@
     <script src="{{ asset('backend/plugins/summernote/summernote-bs4.min.js') }}"></script>
     <script src="{{ asset('backend/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
     <script src="{{ asset('backend/dist/js/adminlte.js') }}"></script>
-    <script src="{{ asset('backend/dist/js/pages/dashboard.js') }}"></script>
 @else
     <script src="{{ asset('backend/dist/js/adminlte.min.js') }}"></script>
 @endif
+
+@stack('scripts')

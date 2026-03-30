@@ -25,5 +25,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'admin',
             'password' => 'admin123',
         ]);
+
+        $this->call(FileRecordSeeder::class);
     }
 }

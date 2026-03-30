@@ -5,6 +5,12 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 uses(RefreshDatabase::class);
 
+test('login page shows the exam days branding', function () {
+    $this->get(route('login'))
+        ->assertOk()
+        ->assertSee('Exam Days!');
+});
+
 test('users can log in and reach the dashboard', function () {
     $user = User::factory()->create([
         'name' => 'admin',

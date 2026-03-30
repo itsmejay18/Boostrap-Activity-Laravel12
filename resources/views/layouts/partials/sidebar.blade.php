@@ -1,7 +1,13 @@
+@php
+    $isDashboard = request()->routeIs('admin.dashboard');
+    $isUsers = request()->routeIs('admin.users.*');
+    $isFileManagement = request()->routeIs('admin.file-management.*');
+@endphp
+
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <a href="{{ route('admin.dashboard') }}" class="brand-link">
         <img src="{{ asset('backend/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">{{ config('app.name', 'Laravel') }}</span>
+        <span class="brand-text font-weight-light">{{ config('app.name', 'Exam Days!') }}</span>
     </a>
 
     <div class="sidebar">
@@ -27,25 +33,31 @@
 
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                <li class="nav-item menu-open">
-                    <a href="#" class="nav-link active">
+                <li class="nav-item">
+                    <a href="{{ route('admin.dashboard') }}" class="nav-link {{ $isDashboard ? 'active' : '' }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.users.index') }}" class="nav-link {{ $isUsers ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>User Management</p>
+                    </a>
+                </li>
+                <li class="nav-item {{ $isFileManagement ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ $isFileManagement ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-folder-open"></i>
                         <p>
-                            Dashboard
+                            File Management
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('admin.dashboard') }}" class="nav-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
+                            <a href="{{ route('admin.file-management.index') }}" class="nav-link {{ $isFileManagement ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Dashboard v1</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('admin.users.index') }}" class="nav-link {{ request()->routeIs('admin.users.*') ? 'active' : '' }}">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>User Management</p>
+                                <p>Manage Files</p>
                             </a>
                         </li>
                     </ul>

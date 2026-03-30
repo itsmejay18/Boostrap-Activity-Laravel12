@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 @include('layouts.partials.header', [
-    'title' => 'Login',
+    'title' => config('app.name', 'Exam Days!') . ' | Login',
     'dashboardAssets' => false,
 ])
 <body class="hold-transition login-page">
 <div class="login-box">
-    <div class="card card-outline card-primary">
-        <div class="card-header text-center">
-            <a href="{{ route('login') }}" class="h1"><b>Login</b></a>
-        </div>
+    <div class="login-logo">
+        <a href="{{ route('login') }}"><b>Exam</b> Days!</a>
+    </div>
+    <div class="card card-outline card-primary shadow-sm">
         <div class="card-body">
-            <p class="login-box-msg">Tutorial Session Class</p>
+            <p class="login-box-msg">Sign in to open the Bootstrap admin panel.</p>
 
             @if (session('success'))
                 <div class="alert alert-success">
@@ -79,14 +79,10 @@
 
                 <div class="social-auth-links text-center mt-2 mb-3">
                     <button type="submit" class="btn btn-block btn-primary">
-                        <i class="fa fa-user"></i> Login
+                        <i class="fa fa-sign-in-alt mr-1"></i> Sign In
                     </button>
                 </div>
             </form>
-
-            <p class="mb-1">
-                <a href="#">forgot my password</a>
-            </p>
         </div>
     </div>
 </div>

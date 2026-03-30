@@ -1,5 +1,5 @@
 @php
-    $title = $title ?? config('app.name', 'Laravel');
+    $title = $title ?? config('app.name', 'Exam Days!');
     $dashboardAssets = $dashboardAssets ?? true;
 @endphp
 <head>
@@ -23,4 +23,5 @@
         <link rel="stylesheet" href="{{ asset('backend/plugins/daterangepicker/daterangepicker.css') }}">
         <link rel="stylesheet" href="{{ asset('backend/plugins/summernote/summernote-bs4.min.css') }}">
     @endif
+    @stack('styles')
 </head>

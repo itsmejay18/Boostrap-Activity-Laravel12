@@ -1,12 +1,13 @@
 @php
     $pageTitle = trim($__env->yieldContent('title'));
     $bodyClass = trim($__env->yieldContent('body-class'));
+    $dashboardAssets = trim($__env->yieldContent('dashboard-assets')) === 'true';
 @endphp
 <!DOCTYPE html>
 <html lang="en">
 @include('layouts.partials.header', [
-    'title' => $pageTitle !== '' ? $pageTitle : config('app.name', 'Laravel'),
-    'dashboardAssets' => true,
+    'title' => $pageTitle !== '' ? $pageTitle : config('app.name', 'Exam Days!'),
+    'dashboardAssets' => $dashboardAssets,
 ])
 <body class="{{ $bodyClass !== '' ? $bodyClass : 'hold-transition sidebar-mini layout-fixed' }}">
 <div class="wrapper">
@@ -22,7 +23,7 @@
     </div>
 
     @include('layouts.partials.footer', [
-        'dashboardAssets' => true,
+        'dashboardAssets' => $dashboardAssets,
         'showFooter' => true,
     ])
 </div>
