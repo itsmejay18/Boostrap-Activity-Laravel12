@@ -21,30 +21,8 @@ class FileRecordSeeder extends Seeder
                 'status' => 'Active',
                 'description' => 'Approved coverage guide for the upcoming midterm examinations.',
             ],
-            [
-                'reference_code' => 'FL-1002',
-                'title' => 'Final Room Assignment',
-                'category' => 'Scheduling',
-                'owner_name' => 'Academic Affairs',
-                'status' => 'Pending',
-                'description' => 'Room allocation sheet prepared for final examination week.',
-            ],
-            [
-                'reference_code' => 'FL-1003',
-                'title' => 'Student Clearance Checklist',
-                'category' => 'Registrar',
-                'owner_name' => 'Student Services',
-                'status' => 'Active',
-                'description' => 'Checklist used before students can claim examination permits.',
-            ],
-            [
-                'reference_code' => 'FL-1004',
-                'title' => 'Faculty Proctoring Schedule',
-                'category' => 'Faculty',
-                'owner_name' => 'Department Chair',
-                'status' => 'Archived',
-                'description' => 'Completed assignment list of faculty proctors from the previous term.',
-            ],
+         
+        
         ];
 
         foreach ($records as $record) {

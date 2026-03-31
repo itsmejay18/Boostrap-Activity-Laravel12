@@ -15,12 +15,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        
 
         User::query()->where('email', 'test@example.com')->delete();
 
         User::query()->updateOrCreate([
-            'email' => 'admin@example.com',
+            'email' => 'admin@gmail.com',
         ], [
             'name' => 'admin',
             'password' => 'admin123',
