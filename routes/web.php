@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FileManagementController;
+use App\Http\Controllers\Admin\StudentController;
 use App\Http\Controllers\Authentication\LoginController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
@@ -25,5 +26,6 @@ Route::middleware('auth')->group(function () {
         Route::resource('file-management', FileManagementController::class)
             ->parameters(['file-management' => 'fileRecord'])
             ->only(['index', 'store', 'update', 'destroy']);
+        Route::resource('students', StudentController::class)->only(['index', 'store', 'update', 'destroy']);
     });
 });

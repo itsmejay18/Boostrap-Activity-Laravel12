@@ -1,6 +1,7 @@
 @php
     $isDashboard = request()->routeIs('admin.dashboard');
     $isUsers = request()->routeIs('admin.users.*');
+    $isStudents = request()->routeIs('admin.students.*');
     $isFileManagement = request()->routeIs('admin.file-management.*');
 @endphp
 
@@ -43,6 +44,12 @@
                     <a href="{{ route('admin.users.index') }}" class="nav-link {{ $isUsers ? 'active' : '' }}">
                         <i class="nav-icon fas fa-users"></i>
                         <p>User Management</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.students.index') }}" class="nav-link {{ $isStudents ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-user-graduate"></i>
+                        <p>Students</p>
                     </a>
                 </li>
                 <li class="nav-item {{ $isFileManagement ? 'menu-open' : '' }}">
